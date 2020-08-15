@@ -51,7 +51,7 @@ class GameScene: SKScene {
     
     private var context : CbContext!
     private var root: CbContainer!
-    private var gameScenes: [CgScene] = []
+    private var gameScenes: [CbScene] = []
 
     private var sprite: CgSpriteManager!
     private var background: CgCustomBackgroundManager!

@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
        
        if let view = self.view as! SKView? {
            
-           let size = CGSize(width: 28*8, height: 36*8)
+           let size = CGSize(width: BG_WIDTH*8, height: BG_HEIGHT*8)
            scene = GameScene(size: size)
            
            // Set background color to black.

@@ -9,12 +9,12 @@
 import Foundation
 import SpriteKit
 
+let BG_WIDTH: Int = 28
+let BG_HEIGHT: Int = 36
+
 /// Based game scene class
 /// This class has spritekit managers, game context and  some methods of printing messages.
- class CgSceneFrame: CgScene {
-
-    let BG_WIDTH: Int = 28
-    let BG_HEIGHT: Int = 36
+ class CgSceneFrame: CbScene {
 
     var context: CbContext!
 

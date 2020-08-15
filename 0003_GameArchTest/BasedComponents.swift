@@ -196,7 +196,7 @@ class CbTimer : CbObject {
 ///    ... handleSequence()  is called by update() ...
 /// - stopSequence()
 ///
-class CgScene : CbContainer {
+class CbScene : CbContainer {
 
     private var timer_sequence: CbTimer!
     private var current_sequence: Int = 0
