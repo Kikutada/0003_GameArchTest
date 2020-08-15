@@ -31,7 +31,7 @@ let BG_HEIGHT: Int = 36
     }
 
     func drawFrame() {
-        deligateBackground.draw(0, x: 14*8, y: 18*8, columnsInWidth: BG_WIDTH, rowsInHeight: BG_HEIGHT)
+        deligateBackground.draw(0, x: CGFloat(BG_WIDTH/2*8), y: CGFloat(BG_HEIGHT/2*8), columnsInWidth: BG_WIDTH, rowsInHeight: BG_HEIGHT)
     }
 
     func printFrame() {

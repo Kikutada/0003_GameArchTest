@@ -10,7 +10,7 @@ import Foundation
 
 /// Maze scene class for play mode
 /// This class has some methods to draw a maze and starting messages.
-class CgSceneMaze : CgSceneFrame {
+class CgSceneMaze: CgSceneFrame {
 
     private let mazeSource: [String] = [
             "aggggggggggggjiggggggggggggb",
