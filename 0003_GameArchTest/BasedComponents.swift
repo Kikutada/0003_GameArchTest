@@ -206,7 +206,7 @@ class CbScene : CbContainer {
     /// - Parameter object: Parent object
     override init(binding object: CbObject) {
         super.init(binding: object)
-        timer_sequence = CbTimer.init(binding: self)
+        timer_sequence = CbTimer(binding: self)
         resetSequence()
     }
     
