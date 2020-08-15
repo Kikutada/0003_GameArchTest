@@ -107,7 +107,6 @@
 				D822F18D24E7FD100025BE95 /* Image5.png */,
 				D822F18B24E7FD100025BE95 /* Image6.png */,
 				D822F18824E7FD0F0025BE95 /* Image7.png */,
-				D822F18524E7DE110025BE95 /* README.md */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -115,6 +114,7 @@
 		D8F1AD2024E3FF5800F0D9F0 = {
 			isa = PBXGroup;
 			children = (
+				D822F18524E7DE110025BE95 /* README.md */,
 				D844F4DB24E56D89003D0A55 /* images */,
 				D8F1AD2B24E3FF5800F0D9F0 /* 0003_GameArchTest */,
 				D8F1AD2A24E3FF5800F0D9F0 /* Products */,
