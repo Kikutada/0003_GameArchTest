@@ -1,14 +1,31 @@
 # Game Architecture
 
-I design the game architecture of Pacman. It is a simple architecture for old 2D game.
+I designed the game architecture of Pacman. It is a simple architecture for old 2D game.
 
 # Sample
 
-When you run the program, the following screen will be displayed and BGM played.
+When you run the program, the following screen will be displayed.
 
-When you touch screen, "16_pacman_eatdot_256ms.wav" sound is played back.
+1. Attract Mode
 
-<img src="https://github.com/Kikutada/0002_SoundTest/blob/master/images/0002_soundTest.png?raw=true" width=288>
+<img src="https://github.com/Kikutada/0003_GameArchTest/blob/master/images/Image1.png?raw=true?raw=true" width=512>
+
+2. Playing Mode
+
+<img src="https://github.com/Kikutada/0003_GameArchTest/blob/master/images/Image2.png?raw=true" width=512>
+
+3. #1 Intermission
+
+<img src="https://github.com/Kikutada/0003_GameArchTest/blob/master/images/Image3.png?raw=true" width=512>
+
+4. #2 Intermission
+
+<img src="https://github.com/Kikutada/0003_GameArchTest/blob/master/images/Image4.png?raw=true" width=512>
+
+4. #3 Intermission
+
+<img src="https://github.com/Kikutada/0003_GameArchTest/blob/master/images/Image5.png?raw=true" width=512>
+
 
 # Usage
 
