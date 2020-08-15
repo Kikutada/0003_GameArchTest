@@ -6,23 +6,23 @@ I designed the game architecture of Pacman. It is a simple architecture for old 
 
 When you run the program, the following screen will be displayed.
 
-1. Attract Mode
+* Attract Mode
 
 <img src="https://github.com/Kikutada/0003_GameArchTest/blob/master/images/Image1.png?raw=true?raw=true" width=512>
 
-2. Playing Mode
+* Playing Mode
 
 <img src="https://github.com/Kikutada/0003_GameArchTest/blob/master/images/Image2.png?raw=true" width=512>
 
-3. #1 Intermission
+* #1 Intermission
 
 <img src="https://github.com/Kikutada/0003_GameArchTest/blob/master/images/Image3.png?raw=true" width=512>
 
-4. #2 Intermission
+* #2 Intermission
 
 <img src="https://github.com/Kikutada/0003_GameArchTest/blob/master/images/Image4.png?raw=true" width=512>
 
-4. #3 Intermission
+* #3 Intermission
 
 <img src="https://github.com/Kikutada/0003_GameArchTest/blob/master/images/Image5.png?raw=true" width=512>
 
