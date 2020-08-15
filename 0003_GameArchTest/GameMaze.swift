@@ -47,8 +47,12 @@ class CgSceneMaze : CgSceneFrame {
     ]
 
         
-    private var blinkTimer: Int = 0
-
+    private var blinkingTimer: Int = 0
+    
+    /// Handle sequence
+    /// To override in a derived class.
+    /// - Parameter sequence: Sequence number
+    /// - Returns: If true, continue the sequence, if not, end the sequence.
     override func handleSequence(sequence: Int) -> Bool {
         switch sequence {
             case  0:
@@ -62,20 +66,20 @@ class CgSceneMaze : CgSceneFrame {
                 goToNextSequence(after: 4000)
 
             case  1:
-                blinkTimer = 104  // 104 * 16ms = 1664ms
+                blinkingTimer = 104  // 104*16ms = 1664ms
                 goToNextSequence()
 
             case  2:
-                if blinkTimer == 0 {
+                if blinkingTimer == 0 {
                     goToNextSequence()
                 } else {
-                    let remain = blinkTimer % 26
+                    let remain = blinkingTimer % 26
                     if remain == 0 {
-                        drawFrame(color: 1)
-                    } else if remain == 13 { // 13 * 16ms = 208ms
-                        drawFrame(color: 0)
+                        drawFrame(color: .White)
+                    } else if remain == 13 { // 13*16ms = 208ms
+                        drawFrame(color: .Blue)
                     }
-                    blinkTimer -= 1
+                    blinkingTimer -= 1
                 }
 
             case 3:
@@ -91,7 +95,9 @@ class CgSceneMaze : CgSceneFrame {
     enum EnPrintStateMessage {
         case PlayerOneReady, Ready, ClearPlayerOne, ClearReady, GameOver
     }
-        
+    
+    /// Print starting message
+    /// - Parameter state: Kind of message
     func printStateMessage(_ state: EnPrintStateMessage) {
         switch state {
             case .PlayerOneReady:
@@ -107,7 +113,8 @@ class CgSceneMaze : CgSceneFrame {
                 deligateBackground.print(0, color: .Red, column:  9, row: 15, string: "GAME  OVER")
         }
     }
-
+    
+    ///　Draw maze with walls and dots 
     private func drawMaze() {
         var row = BG_HEIGHT-4
 
@@ -118,7 +125,7 @@ class CgSceneMaze : CgSceneFrame {
                 switch c {
                     case 50 : txNo = 592  // Oneway with dot "2" -> "1"
                     case 95 : txNo = 576  // Slow "_" -> " "
-                    default : txNo = Int(c)+544 // 576 - 32
+                    default : txNo = Int(c)+544 // 576-32
                 }
                 deligateBackground.put(0, column: i, row: row, texture: txNo)
                 i += 1
@@ -127,9 +134,15 @@ class CgSceneMaze : CgSceneFrame {
         }
     }
     
-    private func drawFrame(color: Int) {
+    enum EnMazeColor: Int {
+        case Blue = 0, White = 1
+    }
+    
+    /// Draw only the wall of the maze
+    /// - Parameter color: Maze color
+    private func drawFrame(color: EnMazeColor) {
         var row = BG_HEIGHT-4
-        let offset: Int = (color == 0) ? 0 : 48
+        let offset: Int = color.rawValue*48
 
         for str in mazeSource {
             var i = 0

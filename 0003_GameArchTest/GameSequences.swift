@@ -115,6 +115,10 @@ class CgSceneAttractMode: CgSceneFrame {
     private var x_animationOfGhost: CGFloat = 0
     private var count_animationOfGhost: Int = 0
 
+    /// Handle sequence
+    /// To override in a derived class.
+    /// - Parameter sequence: Sequence number
+    /// - Returns: If true, continue the sequence, if not, end the sequence.
     override func handleSequence(sequence: Int) -> Bool {
         switch sequence {
             case  0:
@@ -322,6 +326,10 @@ class CgSceneIntermission1: CgSceneFrame {
     private var x_animationOfPlayer: CGFloat = 0
     private var x_animationOfGhost: CGFloat = 0
 
+    /// Handle sequence
+    /// To override in a derived class.
+    /// - Parameter sequence: Sequence number
+    /// - Returns: If true, continue the sequence, if not, end the sequence.
     override func handleSequence(sequence: Int) -> Bool {
         switch sequence {
             case  0:
@@ -404,6 +412,10 @@ class CgSceneIntermission2: CgSceneFrame {
     private var x_animationOfPlayer: CGFloat = 0
     private var x_animationOfGhost: CGFloat = 0
 
+    /// Handle sequence
+    /// To override in a derived class.
+    /// - Parameter sequence: Sequence number
+    /// - Returns: If true, continue the sequence, if not, end the sequence.
     override func handleSequence(sequence: Int) -> Bool {
         switch sequence {
             case  0:
@@ -522,6 +534,10 @@ class CgSceneIntermission3: CgSceneFrame {
     private var x_animationOfPlayer: CGFloat = 0
     private var x_animationOfGhost: CGFloat = 0
 
+    /// Handle sequence
+    /// To override in a derived class.
+    /// - Parameter sequence: Sequence number
+    /// - Returns: If true, continue the sequence, if not, end the sequence.
     override func handleSequence(sequence: Int) -> Bool {
         switch sequence {
             case  0:

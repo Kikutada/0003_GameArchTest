@@ -242,8 +242,10 @@ class CgScene : CbContainer {
         self.enabled = handleSequence(sequence: current_sequence)
     }
 
-    // Handle sequence
-    // To override in a derived class.
+    /// Handle sequence
+    /// To override in a derived class.
+    /// - Parameter sequence: Sequence number
+    /// - Returns: If true, continue the sequence, if not, end the sequence.
     func handleSequence(sequence: Int) -> Bool {
         // TO DO: override
         // (This is pure virtual method.)
