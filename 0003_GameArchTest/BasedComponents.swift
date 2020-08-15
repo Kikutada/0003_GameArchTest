@@ -11,7 +11,7 @@ import Foundation
 /// Based object class
 class CbObject {
 
-    /// Kind of Message ID to handled events in object.
+    /// Kind of Message ID to handled events in object
     enum EnMessage: Int {
         case None
         case Update
@@ -27,7 +27,7 @@ class CbObject {
     /// For accessing parent objects.
     private var parent: CbObject?
     
-    /// Initialize self without parent object.
+    /// Initialize self without parent object
     init() {
         parent = nil
     }
@@ -40,7 +40,7 @@ class CbObject {
     }
     
     /// Bind self to a specified object
-    /// - Parameter object: Object to bind self.
+    /// - Parameter object: Object to bind self
     func bind( _ object: CbObject) {
         // TO DO: override
         // (This is pure virtual method.)
@@ -49,7 +49,7 @@ class CbObject {
     /// Send event messages
     /// - Parameters:
     ///   - id: Message ID
-    ///   - values: Parameters of message.
+    ///   - values: Parameters of message
     func sendEvent(message id: EnMessage, parameter values: [Int]) {
         receiveEvent(sender: self, message: id, parameter: values)
     }
@@ -79,7 +79,7 @@ class CbObject {
     }
 
     /// Update handler
-    /// - Parameter interval: Interval time(ms) to update.
+    /// - Parameter interval: Interval time(ms) to update
     func update(interval: Int) {
         // TO DO: override
         // (This is pure virtual method.)
@@ -174,7 +174,7 @@ class CbTimer : CbObject {
     }
     
     /// Update handler
-    /// - Parameter interval: Interval time(ms) to update.
+    /// - Parameter interval: Interval time(ms) to update
     override func update(interval: Int) {
         guard isCounting() else { return }
 

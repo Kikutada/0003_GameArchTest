@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Context and settings for game.
+/// Context and settings for game
 class CbContext {
 
     enum EnLanguage: Int {

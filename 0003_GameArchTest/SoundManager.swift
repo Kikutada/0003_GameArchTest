@@ -12,7 +12,7 @@ import SpriteKit
 /// Sound management class plays sound with SpriteKit.
 class CgSoundManager: CbContainer {
 
-    /// Kind of sound items to play back.
+    /// Kind of sound items to play back
     enum EnKindOfSound: Int {
         case EatDot = 0
         case EatFruit
@@ -31,7 +31,7 @@ class CgSoundManager: CbContainer {
         case Intermission
     }
 
-    /// List of sound files to load.
+    /// List of sound files to load
     private let table_urls: [[(resourceName: String, typeName: String, interval: Int)]] = [
         [ ("16_pacman_eatdot_256ms", "wav", 256) ],
         [ ("16_pacman_eatfruit_438ms", "wav", 438) ],
@@ -55,7 +55,7 @@ class CgSoundManager: CbContainer {
     private var table_playingTime: [Int] = []
     private var soundEnabled = true
     
-    /// Adjustment time for processing to play sound.
+    /// Adjustment time for processing to play sound
     private let triggerThresholdTime: Int = 32 //ms
 
     private var bgmEnabled: Bool = false
