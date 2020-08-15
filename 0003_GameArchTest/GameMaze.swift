@@ -83,14 +83,16 @@ class CgSceneMaze: CgSceneFrame {
                 }
 
             case 3:
+                // Stop and exit running sequence.
                 return false
 
             default:
+                // Stop and exit running sequence.
                 return false
         }
+        // Continue running sequence.
         return true
     }
-
     
     enum EnPrintStateMessage {
         case PlayerOneReady, Ready, ClearPlayerOne, ClearReady, GameOver

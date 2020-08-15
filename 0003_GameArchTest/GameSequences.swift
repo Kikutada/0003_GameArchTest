@@ -291,11 +291,11 @@ class CgSceneAttractMode: CgSceneFrame {
 
             default:
                 clear()
-                // Stop and exit running sequences.
+                // Stop and exit running sequence.
                 return false
         }
         
-        // Continue running sequences.
+        // Continue running sequence.
         return true
     }
 
@@ -379,11 +379,11 @@ class CgSceneIntermission1: CgSceneFrame {
                     
             default:
                 clear()
-                // Stop and exit running sequences.
+                // Stop and exit running sequence.
                 return false
         }
 
-        // Continue running sequences.
+        // Continue running sequence.
         return true
     }
     
@@ -500,11 +500,11 @@ class CgSceneIntermission2: CgSceneFrame {
 
             default:
                 clear()
-                // Stop and exit running sequences.
+                // Stop and exit running sequence.
                 return false
             }
                 
-        // Continue running sequences.
+        // Continue running sequence.
         return true
     }
 
@@ -576,11 +576,11 @@ class CgSceneIntermission3: CgSceneFrame {
 
             default:
                 clear()
-                // Stop and exit running sequences.
+                // Stop and exit running sequence.
                 return false
         }
 
-        // Continue running sequences.
+        // Continue running sequence.
         return true
     }
                 
