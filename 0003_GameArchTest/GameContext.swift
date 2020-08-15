@@ -17,10 +17,10 @@ class CbContext {
 
     var language: EnLanguage = .Japanese
 
-    var highScore = 56780
-    var score = 1230
+    var highScore = 8150
+    var score = 2020
     var credit = 1
     var numberOfPlayers = 3
-    var round = 4
+    var round = 0
 
 }

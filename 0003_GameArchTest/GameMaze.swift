@@ -8,9 +8,11 @@
 
 import Foundation
 
+/// Maze scene class for play mode
+/// This class has some methods to draw a maze and starting messages.
 class CgSceneMaze : CgSceneFrame {
 
-    private let mazeSourceNormal: [String] = [
+    private let mazeSource: [String] = [
             "aggggggggggggjiggggggggggggb",
             "e111111111111EF111111111111f",
             "e1AGGB1AGGGB1EF1AGGGB1AGGB1f",
@@ -54,7 +56,7 @@ class CgSceneMaze : CgSceneFrame {
                 printFrame()
                 printPlayerScore()
                 printHighScore()
-                printCredit()
+                printPlayers()
                 printRounds()
                 printStateMessage(.GameOver)
                 goToNextSequence(after: 4000)
@@ -108,7 +110,6 @@ class CgSceneMaze : CgSceneFrame {
 
     private func drawMaze() {
         var row = BG_HEIGHT-4
-        let mazeSource = mazeSourceNormal
 
         for str in mazeSource {
             var i = 0
@@ -129,7 +130,6 @@ class CgSceneMaze : CgSceneFrame {
     private func drawFrame(color: Int) {
         var row = BG_HEIGHT-4
         let offset: Int = (color == 0) ? 0 : 48
-        let mazeSource = mazeSourceNormal
 
         for str in mazeSource {
             var i = 0

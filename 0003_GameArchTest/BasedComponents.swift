@@ -11,7 +11,7 @@ import Foundation
 /// Based object class
 class CbObject {
 
-    // Kind of Message ID to handled events in object.
+    /// Kind of Message ID to handled events in object.
     enum EnMessage: Int {
         case None
         case Update
@@ -21,10 +21,10 @@ class CbObject {
         case Accel
     }
     
-    // When it is true, object can handle events.
+    /// When it is true, object can handle events.
     var enabled: Bool = true
 
-    // For accessing parent objects.
+    /// For accessing parent objects.
     private var parent: CbObject?
     
     /// Initialize self without parent object.
@@ -32,38 +32,39 @@ class CbObject {
         parent = nil
     }
     
-    /// Initialize self with parent object.
+    /// Initialize self with parent object
     /// - Parameter object: Parent object.
     init(binding object: CbObject) {
         parent = object
         parent?.bind(self)
     }
     
-    /// Bind self to a specified object.
+    /// Bind self to a specified object
     /// - Parameter object: Object to bind self.
     func bind( _ object: CbObject) {
         // TO DO: override
         // (This is pure virtual method.)
     }
 
-    // Send event messages.
+    /// Send event messages
     /// - Parameters:
     ///   - id: Message ID
     ///   - values: Parameters of message.
     func sendEvent(message id: EnMessage, parameter values: [Int]) {
-        recieveEvent(sender: self, message: id, parameter: values)
+        receiveEvent(sender: self, message: id, parameter: values)
     }
     
-    /// Handler called by sendEvent method to receive events.
+    /// Handler called by sendEvent method to receive events
     /// - Parameters:
     ///   - sender: Message sender
     ///   - id: Message ID
     ///   - values: Parameters of message
-    func recieveEvent(sender: CbObject, message: EnMessage, parameter values: [Int]) {
+    func receiveEvent(sender: CbObject, message: EnMessage, parameter values: [Int]) {
         guard enabled else { return }
-        handleEvent(sender: sender, message: message, parameter: values)
         if message == .Update {
             update(interval: values[0])
+        } else {
+            handleEvent(sender: sender, message: message, parameter: values)
         }
     }
     
@@ -86,44 +87,44 @@ class CbObject {
 
 }
 
-/// Container class that bind objects.
+/// Container class that bind objects
 class CbContainer : CbObject {
     
     private var objects: [CbObject] = []
 
-    /// Bind self to a specified object.
+    /// Bind self to a specified object
     /// - Parameter object: Object to bind self.
     override func bind( _ object: CbObject) {
         objects.append(object)
     }
     
-    /// Handler called by sendEvent method to receive events.
+    /// Handler called by sendEvent method to receive events
     /// It sends messages to all contained object.
     /// - Parameters:
     ///   - sender: Message sender
     ///   - id: Message ID
     ///   - values: Parameters of message
-    override func recieveEvent(sender: CbObject, message: EnMessage, parameter values: [Int]) {
+    override func receiveEvent(sender: CbObject, message: EnMessage, parameter values: [Int]) {
         guard enabled else { return }
 
-        super.recieveEvent(sender: sender, message: message, parameter: values)
+        super.receiveEvent(sender: sender, message: message, parameter: values)
 
         for t in objects {
-            t.recieveEvent(sender: self, message: message, parameter: values)
+            t.receiveEvent(sender: self, message: message, parameter: values)
         }
     }
 }
 
 /// Countdown timer class
 ///
-///  Usages:
-///    var timer: CbTimer!
-///    timer = CbTimer(binding: self)
-///    timer.set(time: 1600) //ms
-///    timer.start()  // start counting
+///  Usage:
+///  - var timer: CbTimer!
+///  - timer = CbTimer(binding: self)
+///  - timer.set(time: 1600) //ms
+///  - timer.start()  // start counting
 ///    .. counting ..
-///    if timer.isFired() { /* action */ }
-///    timer.restart()
+///  - if timer.isFired() { /* action */ }
+///  - timer.restart()
 ///
 class CbTimer : CbObject {
 
@@ -186,3 +187,96 @@ class CbTimer : CbObject {
 
 }
 
+/// Game scene class
+/// This class handles sequence in game scene.
+///
+/// Usage:
+/// - resetSequence()
+/// - startSequence()
+///    ... handleSequence()  is called by update() ...
+/// - stopSequence()
+///
+class CgScene : CbContainer {
+
+    private var timer_sequence: CbTimer!
+    private var current_sequence: Int = 0
+    private var next_sequence: Int = 0
+    
+    /// Initialize self
+    /// - Parameter object: Parent object
+    override init(binding object: CbObject) {
+        super.init(binding: object)
+        timer_sequence = CbTimer.init(binding: self)
+        resetSequence()
+    }
+    
+    /// Reset sequence settings to start
+    func resetSequence() {
+        timer_sequence.reset()
+        current_sequence = 0
+        next_sequence = 0
+        self.enabled = false
+    }
+    
+    /// Start sequence of scene
+    func startSequence() {
+        self.enabled = true
+    }
+
+    /// Stop sequence of scene
+    func stopSequence() {
+        self.enabled = false
+    }
+    
+    /// Implementation of update method in CbContainer
+    /// Handle a sequence with a timer every update cylce
+    override func update(interval: Int) {
+        if timer_sequence.enabled {
+            if timer_sequence.isEventFired() {
+                timer_sequence.reset()
+                current_sequence = next_sequence
+            } else {
+                return
+            }
+        }
+        self.enabled = handleSequence(sequence: current_sequence)
+    }
+
+    // Handle sequence
+    // To override in a derived class.
+    func handleSequence(sequence: Int) -> Bool {
+        // TO DO: override
+        // (This is pure virtual method.)
+        return false
+    }
+    
+    /// Get current sequence number
+    /// - Returns: Sequence number(from 0  to n)
+    func getSequence() -> Int {
+        return current_sequence
+    }
+
+    /// Go to specified sequence number
+    /// - Parameter number: Sequence number(from 0  to n)
+    func goToSequence(number: Int) {
+        timer_sequence.stop()
+        current_sequence = number
+        next_sequence = number
+    }
+    
+    /// Go to next sequence after the specified time
+    /// - Parameters:
+    ///   - number: Sequence number
+    ///   - time: Waiting time
+    func goToNextSequence(_ number: Int = -1, after time: Int = 0) {  // ms
+        next_sequence =  (number == -1) ? current_sequence+1 : number
+        if time > 0 {
+            timer_sequence.set(interval: time)
+            timer_sequence.start()
+        } else {
+            timer_sequence.stop()
+            current_sequence = next_sequence
+        }
+    }
+
+}

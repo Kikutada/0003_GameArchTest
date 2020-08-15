@@ -81,9 +81,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D844F4DB24E56D89003D0A55 /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		D8F1AD2024E3FF5800F0D9F0 = {
 			isa = PBXGroup;
 			children = (
+				D844F4DB24E56D89003D0A55 /* images */,
 				D8F1AD2B24E3FF5800F0D9F0 /* 0003_GameArchTest */,
 				D8F1AD2A24E3FF5800F0D9F0 /* Products */,
 			);
