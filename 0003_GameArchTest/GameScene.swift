@@ -69,11 +69,11 @@ class GameScene: SKScene {
         sound = CgSoundManager(binding: root, view: self)
 
         // Create and append scenes with scequences.
-        gameScenes.append(CgSceneAttractMode(binding: root, context: context, deligateSprite: sprite, deligateBackground: background, deligateSound: sound))
-        gameScenes.append(CgSceneMaze(binding: root, context: context, deligateSprite: sprite, deligateBackground: background, deligateSound: sound))
-        gameScenes.append(CgSceneIntermission1(binding: root, context: context, deligateSprite: sprite, deligateBackground: background, deligateSound: sound))
-        gameScenes.append(CgSceneIntermission2(binding: root, context: context, deligateSprite: sprite, deligateBackground: background, deligateSound: sound))
-        gameScenes.append(CgSceneIntermission3(binding: root, context: context, deligateSprite: sprite, deligateBackground: background, deligateSound: sound))
+        gameScenes.append(CgSceneAttractMode(binding: root, context: context, sprite: sprite, background: background, sound: sound))
+        gameScenes.append(CgSceneMaze(binding: root, context: context, sprite: sprite, background: background, sound: sound))
+        gameScenes.append(CgSceneIntermission1(binding: root, context: context, sprite: sprite, background: background, sound: sound))
+        gameScenes.append(CgSceneIntermission2(binding: root, context: context, sprite: sprite, background: background, sound: sound))
+        gameScenes.append(CgSceneIntermission3(binding: root, context: context, sprite: sprite, background: background, sound: sound))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

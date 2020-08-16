@@ -103,16 +103,16 @@ class CgSceneMaze: CgSceneFrame {
     func printStateMessage(_ state: EnPrintStateMessage) {
         switch state {
             case .PlayerOneReady:
-                deligateBackground.print(0, color: .Cyan, column:  9, row: 21, string: "PLAYER ONE")
+                background.print(0, color: .Cyan, column:  9, row: 21, string: "PLAYER ONE")
                 fallthrough
             case .Ready:
-                deligateBackground.print(0, color: .Yellow, column: 11, row: 15, string: "READY!")
+                background.print(0, color: .Yellow, column: 11, row: 15, string: "READY!")
             case .ClearPlayerOne:
-                deligateBackground.print(0, color: .Cyan, column:  9, row: 21, string: "          ")
+                background.print(0, color: .Cyan, column:  9, row: 21, string: "          ")
             case .ClearReady:
-                deligateBackground.print(0, color: .Yellow, column: 11, row: 15, string: "      ")
+                background.print(0, color: .Yellow, column: 11, row: 15, string: "      ")
             case .GameOver:
-                deligateBackground.print(0, color: .Red, column:  9, row: 15, string: "GAME  OVER")
+                background.print(0, color: .Red, column:  9, row: 15, string: "GAME  OVER")
         }
     }
     
@@ -129,7 +129,7 @@ class CgSceneMaze: CgSceneFrame {
                     case 95 : txNo = 576  // Slow "_" -> " "
                     default : txNo = Int(c)+544 // 576-32
                 }
-                deligateBackground.put(0, column: i, row: row, texture: txNo)
+                background.put(0, column: i, row: row, texture: txNo)
                 i += 1
             }
             row -= 1
@@ -155,7 +155,7 @@ class CgSceneMaze: CgSceneFrame {
                 } else {
                     txNo = Int(c)+offset+544
                 }
-                deligateBackground.put(0, column: i, row: row, texture: txNo)
+                background.put(0, column: i, row: row, texture: txNo)
                 i += 1
             }
             row -= 1
