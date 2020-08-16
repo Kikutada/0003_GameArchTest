@@ -103,7 +103,7 @@ class GameScene: SKScene {
         }
 
         // Send update message every 16ms.
-        root?.sendEvent(message: .Update, parameter: [16])
+        root.sendEvent(message: .Update, parameter: [16])
     }
 
 }
