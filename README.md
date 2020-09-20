@@ -84,5 +84,5 @@ WAV format of all files is 16bit, mono and 22050Hz.
 
 # License
 
-"Sound Manager" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+"GameArchTest" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
 
